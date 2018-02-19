@@ -36,9 +36,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/myIndex', myIndex);
 
-app.use('/auth/google/callback', authCallback);
-// app.use('/auth/user',authUser);
-
+// replace the one below with require('./config/initPassportStrategy')(passport);
 /* passport.use(
   new GoogleStrategy(
     {
@@ -53,6 +51,7 @@ app.use('/auth/google/callback', authCallback);
 );
  */
 
+
 // app.use('/auth/user', authUser(passport));
 app.get(
   '/auth/user',
@@ -61,6 +60,7 @@ app.get(
   })
 );
  
+app.use('/auth/google/callback', authCallback);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
